@@ -1,0 +1,23 @@
+@import "../../../styles/theme.less";
+
+.input_currency {
+  display: flex;
+
+  .count_currency {
+    width: 100%;
+    input {
+      padding: 8px;
+    }
+  }
+
+  .type_currency {
+    width: 25%;
+    .wrapInput .input {
+      border-left: none;
+    }
+  }
+
+  &.error {
+    color: @error-color;
+  }
+}

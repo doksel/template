@@ -1,0 +1,108 @@
+@import "../styles/theme.less";
+
+.paper {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 6px;
+  box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.1);
+}
+
+.small-shadow {
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.006);
+  border-radius: 3px;
+  padding: 20px;
+}
+
+.small-padding-paper {
+  padding: 10px;
+  width: calc(100% + 5px);
+}
+
+.sub-header-form {
+  margin-left: 5px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+
+  h2 {
+    margin: 0;
+    margin-right: 20px;
+  }
+}
+
+.sub-label {
+  margin-left: 10px;
+}
+
+.sub-header-form-with-margins {
+  margin: 30px 0;
+  margin-left: 5px;
+}
+
+.consular-fee-payment-doc {
+  display: flex;
+
+  > div {
+    width: 100%;
+  }
+
+  .empty-label {
+    margin-top: 18px;
+  }
+
+  .action-delete {
+    width: 30%;
+    margin-left: 20px;
+
+    button {
+      width: 100%;
+    }
+  }
+}
+
+.full-years-fieald {
+  display: flex;
+
+  > div {
+    margin-right: 10px;
+  }
+}
+
+@media (max-width: @lg-break-point) {
+  .empty-label {
+    display: none;
+  }
+
+  .sub-header-form {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .sub-header-form-with-margins {
+    flex-direction: row;
+  }
+}
+
+.addition-personal-data-declarant {
+  display: flex;
+  align-items: center;
+  min-height: 85px;
+
+  > div {
+    width: 100%;
+  }
+
+  .label {
+    margin-left: 18px;
+  }
+
+  .action-add {
+    display: flex;
+    align-items: center;
+    margin-bottom: -20px;
+
+    button {
+      width: 100%;
+    }
+  }
+}

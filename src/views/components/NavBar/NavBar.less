@@ -1,0 +1,74 @@
+@import "../../../styles/theme.less";
+
+.nav-bar {
+  .resource {
+    display: block;
+    color: @text-color;
+    font-size: 16px;
+    border-top: @main-border;
+
+    .main-resource {
+      padding: 15px 0;
+      padding-left: 35px;
+      padding-right: 10px;
+      -webkit-transition: 0.3s;
+      -moz-transition: 0.3s;
+      -o-transition: 0.3s;
+      transition: 0.3s;
+
+      &:hover {
+        color: #fff;
+        background-color: @primary-color;
+      }
+    }
+  }
+
+  &:nth-last-child(1) {
+    border-bottom: @main-border;
+  }
+
+  .sub-resources {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+
+    .sub-resource {
+      position: relative;
+      -webkit-transition: 0.3s;
+      -moz-transition: 0.3s;
+      -o-transition: 0.3s;
+      transition: 0.3s;
+      display: block;
+      font-size: 14px;
+      padding: 10px 0;
+      padding-left: 35px;
+      color: @text-color;
+      background-color: #f2f4f883;
+
+      span {
+        display: block;
+      }
+
+      &:hover {
+        background-color: #f2f4f8;
+      }
+    }
+  }
+
+  .active {
+    .main-resource {
+      color: #fff;
+      background-color: @primary-color;
+    }
+
+    .sub-resources {
+      max-height: 20em;
+      opacity: 1;
+    }
+
+    .active-sub-resource {
+      border-left: solid 5px @primary-color;
+      background-color: #f2f4f8;
+    }
+  }
+}

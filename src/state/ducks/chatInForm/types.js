@@ -1,0 +1,6 @@
+export const INIT_CHAT = "INIT_CHAT";
+export const SET_MESSAGE = "SET_MESSAGE";
+export const RESET_CHAT_DATA = "RESET_CHAT_DATA";
+export const SET_SENDING_MESSAGE = "SET_SENDING_MESSAGE";
+export const CLOSE_CHAT_FORM = "CLOSE_CHAT_FORM";
+export const OPEN_CHAT_FORM = "OPEN_CHAT_FORM";

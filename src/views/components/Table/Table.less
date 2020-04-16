@@ -1,0 +1,153 @@
+@import "../../../styles/theme.less";
+
+.wrap-table {
+  .right-side {
+    button {
+      width: 100%;
+    }
+
+    @media screen and(max-width: @xl-break-point) {
+      display: block;
+      right: -100%;
+      padding: 20px !important;
+      padding-left: 40px !important;
+      z-index: 8000;
+      background-color: rgba(0, 0, 0, 0);
+      transition: 0.3s;
+      top: @layout-header-height;
+      position: fixed;
+      width: 100%;
+      height: 100%;
+
+      > div {
+        height: 100%;
+        max-height: calc(100% - @layout-header-height);
+      }
+
+      .close-filter {
+        transition: 0.3s;
+        left: -35px;
+        box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.1);
+      }
+    }
+  }
+
+  .left-side {
+    @media screen and(max-width: @xl-break-point) {
+      width: 100%;
+    }
+  }
+
+  .filters-open-tablet {
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.205);
+
+    .close-filter {
+      > i {
+        margin-right: -30px;
+        font-size: 15px;
+      }
+    }
+  }
+
+  .close-filter {
+    display: none;
+
+    @media screen and(max-width: @xl-break-point) {
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      height: 60px;
+      padding: 5px;
+      background-color: #fff;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-100%);
+      z-index: 100;
+
+      > i {
+        margin-right: 15px;
+        font-size: 15px;
+      }
+    }
+  }
+
+  .ant-table-thead > tr > th {
+    font-weight: 900;
+  }
+
+  .ant-table-thead > tr > th,
+  .ant-table-tbody > tr > td {
+    padding: 9px 16px;
+  }
+
+  .ant-table-body {
+    border-left: @main-border;
+    border-top: @main-border;
+    border-right: @main-border;
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.02);
+    overflow: auto;
+
+    &::-webkit-scrollbar {
+      height: 5px;
+    }
+    &::-webkit-scrollbar-thumb {
+      border-radius: 5px;
+      background-color: @primary-color;
+    }
+  }
+
+  .ant-table-pagination.ant-pagination {
+    float: left;
+    margin: 0;
+    margin-top: 20px;
+  }
+}
+
+.ant-table-tbody {
+  background-color: #fff;
+
+  .ant-table-row {
+    cursor: pointer;
+  }
+}
+
+.list-create-buttons {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+
+  a {
+    display: block;
+    width: 100%;
+    margin-bottom: 3px;
+
+    button {
+      width: 100%;
+    }
+  }
+}
+
+.button-margin {
+  margin-top: 10px;
+}
+
+.button-create {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.ant-table-pagination {
+  width: 100% !important;
+
+  .ant-pagination-total-text {
+    margin-right: 20px;
+  }
+
+  .ant-pagination-options {
+    position: absolute;
+    right: -8px !important;
+  }
+}

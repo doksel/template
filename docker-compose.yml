@@ -1,0 +1,9 @@
+version: "3"
+
+services:
+  app:
+    container_name: ${CONTAINER_NAME}
+    build: .
+    ports:
+      - "${CONTAINER_APP_PORT}:3000"
+    restart: ${CONTAINER_RESTART}

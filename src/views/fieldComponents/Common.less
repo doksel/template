@@ -1,0 +1,165 @@
+@import "../../styles/theme.less";
+
+.form-item {
+  margin: 0;
+  margin-bottom: 10px;
+
+  label {
+    font-weight: 400;
+  }
+
+  .form-item_error {
+    transition-duration: 400ms;
+    margin: 0;
+    min-height: 15px;
+    margin-top: 5px;
+    font-size: 10px;
+  }
+}
+
+.create-form-item {
+  margin-bottom: 0;
+
+  label {
+    display: block;
+    margin-bottom: -5px !important;
+
+    .notification {
+      width: 100%;
+      margin-left: 14px;
+      position: absolute;
+      color: #464646;
+      font-size: 10px;
+    }
+  }
+
+  .form-item_error {
+    font-size: 10px;
+    margin-bottom: -10px;
+    color: #f5222d;
+  }
+
+  .form-date-picker {
+    width: 100%;
+  }
+
+  &.radio-field {
+    display: flex;
+    margin: 5px 2px;
+
+    .ant-form-item-children {
+      display: flex;
+      align-items: center;
+
+      .verticalLine {
+        height: 20px;
+        width: 1px;
+        background-color: #d9d9d9;
+        margin: 0 20px;
+      }
+    }
+  }
+}
+
+.form-checkbox {
+  display: flex;
+  flex-direction: column;
+
+  label {
+    margin-left: 20px;
+  }
+
+  @media (max-width: @lg-break-point) {
+    label {
+      margin-left: 0;
+    }
+  }
+
+  .empty-label {
+    margin-bottom: 23px;
+  }
+}
+
+.form-item-uploader {
+  label {
+    margin-bottom: -1px !important;
+    line-height: 35px;
+  }
+}
+
+.required {
+  position: relative;
+
+  &::after {
+    content: "*";
+    position: absolute;
+    color: @red-color;
+    margin-left: 3px;
+  }
+}
+
+.reference-documents {
+  line-height: 40px;
+
+  & > span {
+    width: 100%;
+  }
+
+  .upload_files {
+    @media (max-width: 992px) {
+      margin-top: 10px;
+    }
+  }
+}
+
+.input-phone {
+  height: 85px;
+
+  label {
+    line-height: 44px;
+  }
+
+  .form-control {
+    width: 100% !important;
+    height: 32px !important;
+  }
+
+  .flag-dropdown,
+  .form-control {
+    border: 1px solid #a5a5a5 !important;
+
+    &:hover {
+      border-color: @blue-color !important;
+      border-right-width: 1px !important;
+    }
+  }
+
+  .react-tel-input:hover {
+    .flag-dropdown,
+    .form-control {
+      border-color: @blue-color !important;
+      border-right-width: 1px !important;
+    }
+  }
+  &.focus {
+    .react-tel-input {
+      border-radius: 5px;
+      border-color: @blue-color !important;
+      border-right-width: 1px !important;
+      box-shadow: 0 0 0 2px rgba(0, 75, 193, 0.2) !important;
+
+      .flag-dropdown,
+      .form-control {
+        border-color: @blue-color !important;
+        border-right-width: 1px !important;
+      }
+    }
+  }
+}
+
+.info-text-uploadFile {
+  font-size: 10px;
+  color: @second-text-color;
+  line-height: 1.2;
+  margin-bottom: 5px;
+}

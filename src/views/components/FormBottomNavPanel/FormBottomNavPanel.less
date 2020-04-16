@@ -1,0 +1,25 @@
+@import "../../../styles/theme.less";
+
+.form-bottom-nav-panel {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: calc(100% - 240px);
+  height: 70px;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  justify-content: space-between;
+  z-index: 2;
+
+  @media screen and (max-width: @lg-break-point) {
+    width: 100%;
+  }
+
+  .group-buttons {
+    button {
+      margin-left: 15px;
+    }
+  }
+}

@@ -1,0 +1,92 @@
+@import "./styles/theme.less";
+
+/* NOTIFICATION */
+
+.notification {
+  background: white;
+  border-left: 1rem solid #8a8a8a;
+  box-shadow: 0.125rem 0.125rem 0.25rem rgba(0, 0, 0, 0.25);
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  margin: 1rem auto;
+  width: 25rem;
+  position: fixed;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999;
+  transition: all 0.8s;
+
+  &.success {
+    border-color: @green-color;
+  }
+
+  &.warning {
+    border-color: @yellow-color;
+  }
+
+  &.error {
+    border-color: @error-color;
+  }
+
+  &.active {
+    top: 0;
+    transition: all 0.5s;
+  }
+}
+
+/* RESOURCES */
+
+.reference-addition {
+  background: #fff;
+  padding: 10px 20px;
+  margin: 20px auto 60px;
+  width: calc(100% + 5px);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.006);
+  border-radius: 3px;
+}
+
+.reference-documents {
+  button {
+    width: 100%;
+    min-width: 250px;
+  }
+
+  .form-item-uploader {
+    width: 100%;
+
+    .form-item-uploader span {
+      width: 100%;
+    }
+
+    .ant-upload {
+      width: 100%;
+    }
+  }
+}
+
+.reference-validity {
+  display: flex;
+  align-items: flex-end;
+
+  .prefix {
+    padding: 20px 10px;
+  }
+  .ant-row {
+    width: 100%;
+  }
+}
+
+.wrapCheckbox {
+  margin: 10px 0;
+}
+
+.paper-with-top-margin {
+  margin-top: 20px;
+}
+
+.resultReqest {
+  padding: 20px 20px 20px 0;
+  font-size: 20px;
+}

@@ -1,0 +1,63 @@
+@import "../../../styles/theme.less";
+
+.buttonIcon {
+  background-color: #f5f7fa;
+  border: none;
+  border-radius: 20px;
+  position: relative;
+  padding-left: 40px;
+  padding-right: 20px;
+  cursor: pointer;
+  line-height: 2.5;
+  color: #2d5ca6;
+  font-size: 100%;
+  display: flex;
+  align-items: center;
+  min-height: 36px;
+  transition: 0.2s ease-in-out;
+  margin-top: 20px;
+  outline: none;
+
+  &.disabled {
+    background-color: @second-text-color;
+    color: #f5f7fa;
+    border: solid 2px @second-text-color;
+    cursor: not-allowed;
+  }
+
+  &:hover {
+    background-color: #2d5ca6;
+    color: #f5f7fa;
+
+    .icon {
+      filter: brightness(0) invert(1);
+    }
+  }
+
+  &:focus,
+  &:active {
+    background-color: #234161 !important;
+    color: #f5f7fa !important;
+
+    .icon {
+      filter: brightness(0) invert(1);
+    }
+  }
+
+  .icon {
+    display: block;
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    margin-top: -12px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+  }
+
+  @media screen and (max-width: 480px) {
+    line-height: 1.4;
+  }
+}

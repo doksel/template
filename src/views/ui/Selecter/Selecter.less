@@ -1,0 +1,117 @@
+@import "../../../styles/theme.less";
+
+.wrapInput {
+  position: relative;
+
+  &.disabled {
+    &:after {
+      content: " ";
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.05);
+      position: absolute;
+    }
+  }
+
+  .input {
+    position: relative;
+    cursor: pointer;
+    min-height: 50px;
+    border: 2px solid #323a45;
+    padding: 14px 26px 11px 11px;
+    color: #6d727c;
+    font-size: 16px;
+
+    span {
+      font-weight: 300;
+    }
+
+    .selected {
+      color: #000;
+      font-weight: 500;
+    }
+
+    &:focus {
+      outline: 2px dotted #6f777b;
+      outline-offset: 3px;
+      border: 2px solid @blue-color;
+      color: #000;
+
+      span {
+        font-weight: 500;
+      }
+    }
+
+    .arrow {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 12px;
+      max-width: 12px;
+      height: 7px;
+      transition: 0.2s ease-in-out;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8c3ZnIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDIwIDIwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogICAgPHBhdGggZD0iTTQuNTE2IDcuNTQ4YzAuNDM2LTAuNDQ2IDEuMDQzLTAuNDgxIDEuNTc2IDBsMy45MDggMy43NDcgMy45MDgtMy43NDdjMC41MzMtMC40ODEgMS4xNDEtMC40NDYgMS41NzQgMCAwLjQzNiAwLjQ0NSAwLjQwOCAxLjE5NyAwIDEuNjE1LTAuNDA2IDAuNDE4LTQuNjk1IDQuNTAyLTQuNjk1IDQuNTAyLTAuMjE3IDAuMjIzLTAuNTAyIDAuMzM1LTAuNzg3IDAuMzM1cy0wLjU3LTAuMTEyLTAuNzg5LTAuMzM1YzAgMC00LjI4Ny00LjA4NC00LjY5NS00LjUwMnMtMC40MzYtMS4xNyAwLTEuNjE1eiIgZmlsbD0iIzJENUNBNiIgLz4KPC9zdmc+");
+    }
+
+    &.focused {
+      outline: 2px dotted #6f777b;
+      outline-offset: 3px;
+      border: 2px solid @blue-color;
+      color: #000;
+
+      .arrow {
+        transform: rotate(180deg) translateY(50%);
+      }
+
+      span {
+        font-weight: 500;
+      }
+    }
+
+    &.error {
+      border: 2px solid @error-color;
+      color: inherit;
+    }
+  }
+
+  .area {
+    z-index: 100;
+    top: 50px;
+    position: absolute;
+    width: calc(100% - 8px);
+    max-height: 200px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 8px 4px 4px 4px;
+    border-radius: 3px;
+
+    .options {
+      background-color: #fff;
+
+      &::-webkit-scrollbar-track {
+        background-color: transparent;
+      }
+
+      .option {
+        cursor: pointer;
+        min-height: 24px;
+        padding: 15px;
+        transition: 200ms;
+
+        &:hover {
+          color: #fff;
+          background-color: @blue-color;
+        }
+
+        &.active {
+          color: #fff;
+          background-color: @blue-color;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,103 @@
+@import "../../../styles/theme.less";
+
+.files {
+  width: max-content;
+
+  .file {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+
+    &_name {
+      margin-right: 10px;
+      text-decoration: none;
+      color: initial;
+    }
+
+    &_delete {
+      cursor: pointer;
+
+      img {
+        width: 20px;
+        height: 100%;
+      }
+    }
+
+    &_accepts {
+      font-size: 12px;
+      color: #2d5ca6;
+    }
+  }
+}
+
+.label-upload {
+  position: relative;
+  background-color: #cce0ff;
+  border: #2d5ca6 1px solid;
+  border-radius: 25px;
+  position: relative;
+  padding-left: 40px;
+  padding-right: 20px;
+  cursor: pointer;
+  line-height: 2.5;
+  color: #2d5ca6;
+  font-size: 100%;
+  display: flex !important;
+  align-items: center;
+  min-height: 50px;
+  transition: 0.2s ease-in-out;
+  margin-top: 20px;
+  outline: none;
+
+  &.disabled {
+    background-color: @second-text-color;
+    color: #f5f7fa;
+    border: solid 2px @second-text-color;
+    cursor: not-allowed;
+  }
+
+  &:hover {
+    background-color: #2d5ca6;
+    color: #f5f7fa;
+
+    .icon {
+      filter: brightness(0) invert(1);
+    }
+  }
+
+  &:focus,
+  &:active {
+    background-color: #234161 !important;
+    color: #f5f7fa !important;
+
+    .icon {
+      filter: brightness(0) invert(1);
+    }
+  }
+
+  .icon {
+    display: block;
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    margin-top: -12px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+  }
+
+  @media screen and (max-width: 480px) {
+    line-height: 1.4;
+  }
+
+  input {
+    position: absolute;
+    visibility: hidden;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}

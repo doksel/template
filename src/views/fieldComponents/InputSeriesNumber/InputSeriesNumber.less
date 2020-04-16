@@ -1,0 +1,21 @@
+@import "../../../styles/theme.less";
+
+.input_series_number {
+  display: flex;
+
+  .series_input {
+    width: 30%;
+    input {
+      padding: 8px;
+    }
+  }
+
+  .number_input {
+    width: 100%;
+    padding-left: 10px;
+  }
+
+  &.error {
+    color: @error-color;
+  }
+}
