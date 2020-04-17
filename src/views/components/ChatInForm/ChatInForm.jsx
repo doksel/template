@@ -9,7 +9,7 @@ import {
   closeChat
 } from "../../../state/ducks/chatInForm/actions";
 
-import "./ChatInForm.less";
+import "./ChatInForm.module.less";
 
 const ChatInForm = ({
   active,

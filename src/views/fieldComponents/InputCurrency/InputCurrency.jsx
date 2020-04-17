@@ -4,8 +4,8 @@ import cm from "classnames";
 import Input from "../../ui/Input/Input";
 import SelecterUI from "../../ui/Selecter/Selecter";
 
-import f from "../form-components.less";
-import s from "./InputCurrency.less";
+import f from "../Common.module.less";
+import s from "./InputCurrency.module.less";
 
 const InputSeriesNumber = ({
   type,
@@ -21,6 +21,7 @@ const InputSeriesNumber = ({
   options,
   localCurrency,
   invisible,
+  placeholder = "Enter amound",
   ...props
 }) => {
   const series = fieldsName
@@ -56,7 +57,7 @@ const InputSeriesNumber = ({
         <div className={s.count_currency}>
           <Input
             type={type}
-            placeholder="Введіть сумму за платіжним документом"
+            placeholder={placeholder}
             disabled={disabled}
             {...series.input}
             onChange={e => series.input.onChange(e.target.value.toUpperCase())}
@@ -69,7 +70,7 @@ const InputSeriesNumber = ({
           <SelecterUI
             {...number.input}
             onChange={value => number.input.onChange(value)}
-            disabled={true}
+            disabled={disabled}
             placeholder={number.input.value || localCurrency}
             localCurrency={localCurrency}
             options={options}

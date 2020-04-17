@@ -3,7 +3,7 @@ import cm from "classnames";
 
 import InputUI from "../../ui/Input/Input";
 
-import f from "../Common.less";
+import s from "../Common.module.less";
 
 const Input = ({
   label,
@@ -16,6 +16,7 @@ const Input = ({
   disabled,
   autoUpperCase,
   invisible,
+  required,
   mask
 }) => {
   if (initValue && !input.value) {
@@ -28,11 +29,15 @@ const Input = ({
 
   return (
     <div
-      className={cm(f.formField, {
-        [f.invisible]: invisible
+      className={cm(s.formField, {
+        [s.invisible]: invisible
       })}
     >
-      {label ? <label>{label}</label> : <label>&nbsp;</label>}
+      {label ? (
+        <label className={required && s.required}>{label}:</label>
+      ) : (
+        <label>&nbsp;</label>
+      )}
 
       <InputUI
         {...input}
@@ -49,7 +54,7 @@ const Input = ({
         }
       />
 
-      {touched && error && <span className={f.error}>{error}</span>}
+      {touched && error && <span className={s.error}>{error}</span>}
     </div>
   );
 };

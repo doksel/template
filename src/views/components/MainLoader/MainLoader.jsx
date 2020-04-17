@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./MainLoader.less";
+import "./MainLoader.module.less";
 
 const MainLoader = ({ loading }) => (
   <div className={`main-loader ${loading ? "active" : ""}`}>

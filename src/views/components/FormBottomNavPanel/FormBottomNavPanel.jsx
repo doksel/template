@@ -2,7 +2,7 @@ import React from "react";
 import { Button } from "antd";
 import { withRouter } from "react-router-dom";
 
-import "./FormBottomNavPanel.less";
+import "./FormBottomNavPanel.module.less";
 
 const onExit = history => {
   let splitedPath = history.location.pathname.split("/");

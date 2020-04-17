@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import LoadingBar from "react-top-loading-bar";
 import { connect } from "react-redux";
 
-import "./LoaderLineBar.less";
+import "./LoaderLineBar.module.less";
 
 class LoaderLineBar extends Component {
   state = {

@@ -1,0 +1,22 @@
+@import "../../../styles/theme.less";
+
+.header {
+  display: flex;
+  align-items: center;
+  border-bottom: @main-border;
+
+  .burger-menu {
+    margin-right: 10px;
+    display: none;
+
+    @media screen and (max-width: @lg-break-point) {
+      display: block;
+    }
+  }
+
+  h1 {
+    font-weight: 400;
+    font-size: 18px;
+    margin-bottom: 1px;
+  }
+}

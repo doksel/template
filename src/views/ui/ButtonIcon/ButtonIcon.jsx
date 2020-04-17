@@ -1,6 +1,6 @@
 import React from "react";
 
-import s from "./ButtonIcon.less";
+import s from "./ButtonIcon.module.less";
 
 const ButtonIcon = ({ icon, children, disabled, onClick }) => (
   <button

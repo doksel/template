@@ -1,6 +1,6 @@
 import React from "react";
 
-import s from "./Content.less";
+import s from "./Content.module.less";
 
 const Content = ({ children }) => <div className={s.content}>{children}</div>;
 

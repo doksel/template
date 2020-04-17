@@ -10,8 +10,9 @@ import Input from "../../fieldComponents/Input/Input";
 import Button from "../../ui/Button/Button";
 import { message } from "../../../helpers/notifications";
 
-import "./LogIn.less";
-import "../../../styles/components.less";
+import s from "./LogIn.module.less";
+import RadioButton from "../../fieldComponents/RadioButton/RadioButton";
+import SelectSearch from "../../fieldComponents/SelectSearch/SelectSearch";
 
 const LogIn = ({ handleSubmit, signIn, dirty, invalid }) => {
   const [loading, setLoading] = useState(false);
@@ -21,6 +22,7 @@ const LogIn = ({ handleSubmit, signIn, dirty, invalid }) => {
 
     handleSubmit(values => {
       setLoading(true);
+      console.log(signIn);
 
       return signIn(values)
         .then(() => {
@@ -34,22 +36,19 @@ const LogIn = ({ handleSubmit, signIn, dirty, invalid }) => {
   };
 
   return (
-    <form autoComplete="off" className="login-form paper" onSubmit={formSubmit}>
-      <div className="logo">
-        <img src="/logo.svg" alt="minua" />
-      </div>
+    <form autoComplete="off" className={s.login_form} onSubmit={formSubmit}>
+      <h1>Sign in</h1>
 
-      <h1>Авторизація</h1>
-
-      <div className="split-line" />
+      <div className={s.split_line} />
 
       <Field
         name="username"
         component={Input}
         type="text"
-        label="Ім'я користувача"
-        placeholder="Введіть ім'я користувача"
+        label="name"
+        placeholder="Enter name"
         validate={[required]}
+        required
         icon="user"
       />
 
@@ -57,16 +56,30 @@ const LogIn = ({ handleSubmit, signIn, dirty, invalid }) => {
         name="password"
         component={Input}
         type="password"
-        label="Пароль"
-        placeholder="Введіть пароль"
+        label="label"
+        placeholder="Enter label"
         validate={[required]}
+        required
         icon="lock"
+      />
+
+      <Field
+        name="countryId"
+        validate={[required]}
+        component={SelectSearch}
+        placeholder="Оберіть країну"
+        label="Країна*"
+        options={[
+          { value: 1, label: "1" },
+          { value: 2, label: "2" },
+          { value: 3, label: "3" }
+        ]}
       />
 
       <Button
         disabled={!dirty || invalid}
-        htmlType="submit"
-        type="primary"
+        type="submit"
+        primary
         loading={loading}
       >
         Enter

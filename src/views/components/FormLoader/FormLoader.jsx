@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Spin } from "antd";
 
-import "./FormLoader.less";
-import "../FormSteps/FormSteps.less";
+import "./FormLoader.module.less";
 
 const FormLoader = () => {
   const [dots, setDots] = useState("");
@@ -22,7 +21,7 @@ const FormLoader = () => {
   }, []);
 
   return (
-    <div className="paper form-loader">
+    <div className="form-loader">
       <Spin size="large" />
       <span>Зачекайте{dots}</span>
     </div>

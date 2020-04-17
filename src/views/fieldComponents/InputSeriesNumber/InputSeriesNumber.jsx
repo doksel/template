@@ -3,8 +3,8 @@ import cm from "classnames";
 
 import Input from "../../ui/Input/Input";
 
-import f from "../form-components.less";
-import s from "./InputSeriesNumber.less";
+import f from "../Common.module.less";
+import s from "./InputSeriesNumber.module.less";
 
 const InputSeriesNumber = ({
   type,

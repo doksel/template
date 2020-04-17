@@ -1,19 +1,19 @@
 @import "../../styles/theme.less";
 
-.form-item {
-  margin: 0;
-  margin-bottom: 10px;
+.formField {
+  margin-top: 20px;
 
   label {
-    font-weight: 400;
+    font-size: 100%;
+    display: block;
+    font-weight: 500;
+    width: 100%;
+    margin-bottom: 8px;
   }
 
-  .form-item_error {
-    transition-duration: 400ms;
-    margin: 0;
-    min-height: 15px;
-    margin-top: 5px;
-    font-size: 10px;
+  .error {
+    color: @error-color;
+    font-size: 16px;
   }
 }
 
@@ -36,7 +36,7 @@
   .form-item_error {
     font-size: 10px;
     margin-bottom: -10px;
-    color: #f5222d;
+    color: @error-color;
   }
 
   .form-date-picker {
@@ -95,65 +95,6 @@
     position: absolute;
     color: @red-color;
     margin-left: 3px;
-  }
-}
-
-.reference-documents {
-  line-height: 40px;
-
-  & > span {
-    width: 100%;
-  }
-
-  .upload_files {
-    @media (max-width: 992px) {
-      margin-top: 10px;
-    }
-  }
-}
-
-.input-phone {
-  height: 85px;
-
-  label {
-    line-height: 44px;
-  }
-
-  .form-control {
-    width: 100% !important;
-    height: 32px !important;
-  }
-
-  .flag-dropdown,
-  .form-control {
-    border: 1px solid #a5a5a5 !important;
-
-    &:hover {
-      border-color: @blue-color !important;
-      border-right-width: 1px !important;
-    }
-  }
-
-  .react-tel-input:hover {
-    .flag-dropdown,
-    .form-control {
-      border-color: @blue-color !important;
-      border-right-width: 1px !important;
-    }
-  }
-  &.focus {
-    .react-tel-input {
-      border-radius: 5px;
-      border-color: @blue-color !important;
-      border-right-width: 1px !important;
-      box-shadow: 0 0 0 2px rgba(0, 75, 193, 0.2) !important;
-
-      .flag-dropdown,
-      .form-control {
-        border-color: @blue-color !important;
-        border-right-width: 1px !important;
-      }
-    }
   }
 }
 

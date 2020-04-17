@@ -10,7 +10,7 @@ import {
   setCurrentStep
 } from "../../../state/ducks/formSteps/actions";
 
-import "./FormSteps.less";
+import "./FormSteps.module.less";
 
 const { Step } = Steps;
 

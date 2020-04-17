@@ -3,7 +3,7 @@ import cm from "classnames";
 
 import SelecterUI from "../../ui/Selecter/Selecter";
 
-import f from "../form-components.less";
+import f from "../Common.module.less";
 
 const Selecter = ({
   label,

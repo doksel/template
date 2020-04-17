@@ -1,5 +1,17 @@
 @import "./styles/theme.less";
 
+/* RESET */
+
+* {
+  color: @main-text-color;
+  text-decoration: none;
+  outline: none;
+  box-sizing: border-box;
+  font-family: "Source Sans Pro";
+  padding: 0;
+  margin: 0;
+}
+
 /* NOTIFICATION */
 
 .notification {
@@ -36,57 +48,138 @@
   }
 }
 
-/* RESOURCES */
+/* DATE-PICKER */
 
-.reference-addition {
-  background: #fff;
-  padding: 10px 20px;
-  margin: 20px auto 60px;
-  width: calc(100% + 5px);
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.006);
-  border-radius: 3px;
-}
+.rdtPicker {
+  padding: 20px;
+  width: 100% !important;
+  min-width: 250px;
+  box-shadow: 0 0 4px rgba(15, 15, 16, 0.14);
 
-.reference-documents {
-  button {
-    width: 100%;
-    min-width: 250px;
+  .rdtSwitch,
+  .rdtPrev,
+  .rdtNext {
+    font-size: 18px;
+    color: @blue-color;
+    font-weight: 600;
   }
 
-  .form-item-uploader {
-    width: 100%;
+  .rdtPrev,
+  .rdtNext {
+    padding: 0 10px;
+  }
 
-    .form-item-uploader span {
-      width: 100%;
+  table {
+    border-collapse: collapse;
+    thead {
+      tr {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        &:nth-child(1) {
+          margin-bottom: 20px;
+        }
+        .rdtSwitch {
+          width: max-content;
+        }
+      }
+    }
+    tbody {
+      margin: 0;
+      padding: 0;
+      border: 0;
+    }
+    tr {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      display: flex;
+      td.rdtDay {
+        flex: 0 0 46px;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgba(22, 34, 55, 0.1);
+
+        @media screen and (max-width: 480px) {
+          flex: 0 0 34px;
+          width: 34px;
+          height: 34px;
+        }
+      }
+      td.rdtActive {
+        background-color: @blue-color;
+      }
+      .rdtToday {
+        &:before {
+          content: none;
+        }
+      }
+      .rdtMonth,
+      .rdtYear {
+        text-align: center;
+        padding: 11px 0;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        flex: 0 1 30%;
+        max-width: 30%;
+        height: 40px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    width: 280px;
+  }
+}
+
+/* INPUT-PHONE */
+
+.react-tel-input {
+  input {
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 0 !important;
+    border: 1px solid #323a45;
+    padding: 11px 11px 11px 53px;
+    font-size: 16px !important;
+    min-height: 20px;
+    border: 1px solid #323a45 !important;
+
+    &::placeholder {
+      color: #6d727c;
+      font-weight: 300;
     }
 
-    .ant-upload {
-      width: 100%;
+    &:focus {
+      outline: 2px dotted @inactive-color;
+      outline-offset: 3px;
+      border: 1px solid @primary-color;
+      color: #000;
+      font-weight: 500;
+    }
+
+    &:disabled {
+      background-color: rgba(0, 0, 0, 0.05);
     }
   }
-}
 
-.reference-validity {
-  display: flex;
-  align-items: flex-end;
-
-  .prefix {
-    padding: 20px 10px;
+  .flag-dropdown {
+    top: 1px !important;
+    bottom: 1px !important;
+    left: 1px !important;
+    border: none !important;
+    border-radius: 0 !important;
+    border-right: 1px solid #323a45 !important;
   }
-  .ant-row {
-    width: 100%;
+
+  .error {
+    .flag-dropdown,
+    input {
+      border-color: @error-color;
+      color: @error-color;
+    }
   }
-}
-
-.wrapCheckbox {
-  margin: 10px 0;
-}
-
-.paper-with-top-margin {
-  margin-top: 20px;
-}
-
-.resultReqest {
-  padding: 20px 20px 20px 0;
-  font-size: 20px;
 }

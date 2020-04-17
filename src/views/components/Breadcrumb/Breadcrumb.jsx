@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import { Link, withRouter } from "react-router-dom";
 
-import s from "./Breadcrumb.less";
+import s from "./Breadcrumb.module.less";
 
 const Breadcrumb = ({ crumbs, history }) => (
   <div className={s.breadcrumb}>

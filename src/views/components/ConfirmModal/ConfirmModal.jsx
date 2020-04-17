@@ -7,7 +7,7 @@ import NavigationPrompt from "react-router-navigation-prompt";
 import { Beforeunload } from "react-beforeunload";
 import Button from "../../ui/Button/Button";
 
-import s from "./ConfirmModal.less";
+import s from "./ConfirmModal.module.less";
 
 const ConfirmModal = ({
   form,

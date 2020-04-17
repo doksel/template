@@ -1,7 +1,7 @@
 import React from "react";
 import Select from "react-select";
 
-import f from "../form-components.less";
+import f from "../Common.module.less";
 
 const customStyles = {
   option: (provided, { isFocused, isSelected }) => ({
@@ -19,7 +19,7 @@ const customStyles = {
     cursor: "pointer",
     minHeight: "50px",
     boxShadow: "none",
-    border: isFocused || isSelected ? "2px solid #004bc1" : "2px solid #323a45",
+    border: isFocused || isSelected ? "1px solid #004bc1" : "1px solid #323a45",
     padding: 0,
     color: "inherit",
     fontSize: "16px",

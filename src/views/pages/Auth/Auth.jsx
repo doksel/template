@@ -1,15 +1,13 @@
 import React from "react";
 import LogIn from "../../forms/LogIn/LogIn";
 
-import "./Auth.less";
+import s from "./Auth.module.less";
 
 const Auth = () => (
-  <div className="background">
-    <div className="wrap-login-form">
+  <div className={s.background}>
+    <div className={s.wrapForm}>
       <LogIn />
     </div>
-
-    <span className="version">v. {process.env.REACT_APP_VERSION}</span>
   </div>
 );
 

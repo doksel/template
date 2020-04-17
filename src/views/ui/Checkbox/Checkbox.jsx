@@ -1,6 +1,6 @@
 import React from "react";
 
-import s from "./Checkbox.less";
+import s from "./Checkbox.module.less";
 
 const CheckboxUI = ({ name, id, disabled, value, ...props }) => (
   <div className={s.wrap_checkbox}>

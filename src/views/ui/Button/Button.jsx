@@ -1,24 +1,15 @@
 import React from "react";
 import cm from "classnames";
 
-import s from "./Button.less";
-
-const Loader = () => (
-  <div className={s.loader}>
-    <div className={s.lds_ring}>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  </div>
-);
+import Loader from "../../components/Loader/Loader";
+import s from "./Button.module.less";
 
 const Button = ({
   children,
   outlined,
   primary,
   secondary,
+  success,
   disabled,
   onClick,
   loading,
@@ -28,6 +19,7 @@ const Button = ({
     className={cm(s.buttonMain, {
       [s.primary]: primary,
       [s.secondary]: secondary,
+      [s.success]: success,
       [s.outlined]: outlined,
       [s.disabled]: disabled
     })}

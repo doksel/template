@@ -1,8 +1,8 @@
 import React from "react";
 
-import s from "./RadioButton.less";
+import s from "./RadioButton.module.less";
 
-const RadioButtonUI = ({ name, id, disabled, value, radioButton, input }) => (
+const RadioButtonUI = ({ name, id, disabled, radioButton, input }) => (
   <label htmlFor={id}>
     <div className={s.agree_wrap}>
       <input
@@ -18,7 +18,7 @@ const RadioButtonUI = ({ name, id, disabled, value, radioButton, input }) => (
         onChange={() => input.onChange(radioButton.value)}
       />
 
-      <label htmlFor={id} className={s.text_delete}></label>
+      <label htmlFor={id}></label>
 
       <div className={s.checkbox_text}>{radioButton.text}</div>
     </div>

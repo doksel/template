@@ -2,11 +2,19 @@ import React from "react";
 
 import RadioButtonUI from "../../ui/RadioButton/RadioButton";
 
-import s from "./RadioButton.less";
+import s from "./RadioButton.module.less";
+import c from "../Common.module.less";
 
-const RadioButton = ({ input, label, radioButtonList = [], disabled }) => (
+const RadioButton = ({
+  input,
+  label,
+  radioButtonList = [],
+  disabled,
+  meta: { touched, error },
+  required
+}) => (
   <div className={s.wrap}>
-    <label>{label}</label>
+    <label className={required && c.required}>{label}:</label>
 
     <div className={s.wrap_list}>
       {radioButtonList.map((radioButton, index) => (
@@ -20,6 +28,8 @@ const RadioButton = ({ input, label, radioButtonList = [], disabled }) => (
         />
       ))}
     </div>
+
+    {touched && error && <span className={s.error}>{error}</span>}
   </div>
 );
 
