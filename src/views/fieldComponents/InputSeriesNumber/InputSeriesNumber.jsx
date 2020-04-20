@@ -3,7 +3,7 @@ import cm from "classnames";
 
 import Input from "../../ui/Input/Input";
 
-import f from "../Common.module.less";
+import f from "../FieldComponents.module.less";
 import s from "./InputSeriesNumber.module.less";
 
 const InputSeriesNumber = ({

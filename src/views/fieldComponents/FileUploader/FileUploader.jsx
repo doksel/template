@@ -2,7 +2,7 @@ import React from "react";
 
 import FileUploaderUI from "../../ui/FileUploader/FileUploader";
 
-import f from "../Common.module.less";
+import f from "../FieldComponents.module.less";
 
 const Input = ({
   label,

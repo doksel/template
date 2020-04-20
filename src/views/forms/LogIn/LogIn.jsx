@@ -11,8 +11,7 @@ import Button from "../../ui/Button/Button";
 import { message } from "../../../helpers/notifications";
 
 import s from "./LogIn.module.less";
-import RadioButton from "../../fieldComponents/RadioButton/RadioButton";
-import SelectSearch from "../../fieldComponents/SelectSearch/SelectSearch";
+import Selecter from "../../fieldComponents/Selecter/Selecter";
 
 const LogIn = ({ handleSubmit, signIn, dirty, invalid }) => {
   const [loading, setLoading] = useState(false);
@@ -22,7 +21,6 @@ const LogIn = ({ handleSubmit, signIn, dirty, invalid }) => {
 
     handleSubmit(values => {
       setLoading(true);
-      console.log(signIn);
 
       return signIn(values)
         .then(() => {
@@ -66,9 +64,10 @@ const LogIn = ({ handleSubmit, signIn, dirty, invalid }) => {
       <Field
         name="countryId"
         validate={[required]}
-        component={SelectSearch}
+        component={Selecter}
         placeholder="Оберіть країну"
-        label="Країна*"
+        label="Країна"
+        required
         options={[
           { value: 1, label: "1" },
           { value: 2, label: "2" },

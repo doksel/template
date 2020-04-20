@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import InputPhoneUI from "../../ui/InputPhone/InputPhone";
 import { getUserIp } from "../../../helpers";
 
-import s from "../Common.module.less";
+import s from "../FieldComponents.module.less";
 
 const InputPhone = ({ label, input, required, meta: { touched, error } }) => {
   const [code, setCode] = useState("ua");

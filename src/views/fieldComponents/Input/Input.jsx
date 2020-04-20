@@ -3,7 +3,7 @@ import cm from "classnames";
 
 import InputUI from "../../ui/Input/Input";
 
-import s from "../Common.module.less";
+import s from "../FieldComponents.module.less";
 
 const Input = ({
   label,

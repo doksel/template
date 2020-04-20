@@ -4,7 +4,7 @@ import cm from "classnames";
 import Input from "../../ui/Input/Input";
 import SelecterUI from "../../ui/Selecter/Selecter";
 
-import f from "../Common.module.less";
+import f from "../FieldComponents.module.less";
 import s from "./InputCurrency.module.less";
 
 const InputSeriesNumber = ({

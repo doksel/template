@@ -1,48 +1,83 @@
-import React from "react";
-import cm from "classnames";
+import React, { useState, useEffect } from "react";
+import SelectUI from "../../ui/Selecter/Selecter";
 
-import SelecterUI from "../../ui/Selecter/Selecter";
-
-import f from "../Common.module.less";
+import s from "../FieldComponents.module.less";
 
 const Selecter = ({
-  label,
-  input,
-  meta: { touched, error },
-  placeholder,
+  initValue,
   options,
+  placeholder,
   disabled,
-  onChange,
-  defaultValue,
-  invisible
+  input,
+  required,
+  meta: { touched, error },
+  label
 }) => {
-  if (defaultValue) {
-    input.onChange(defaultValue);
-  }
+  const [selectedOption, setSelectedOption] = useState(null);
+
+  useEffect(() => {
+    if (initValue) {
+      setSelectedOption(
+        options.filter(option => option.value === initValue)[0]
+      );
+      input.onChange(initValue);
+    } else {
+      setSelectedValue();
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!options.length && selectedOption) {
+      setSelectedValue(null);
+    }
+  }, [selectedOption]);
+
+  const setSelectedValue = () => {
+    if (typeof input.value === "object") {
+      setSelectedOption(
+        options.filter(option => option.value.id === input.value.id)[0]
+      );
+    } else {
+      setSelectedOption(
+        options.filter(option => option.value === input.value)[0]
+      );
+    }
+  };
+
+  const handleChange = selectedOption => {
+    setSelectedValue(selectedOption);
+  };
 
   return (
-    <div
-      className={cm(f.formField, {
-        [f.invisible]: invisible
-      })}
-    >
-      {label ? <label>{label}</label> : <label>&nbsp;</label>}
-      <SelecterUI
+    <div className={s.formField}>
+      {label ? (
+        <label className={required && s.required}>{label}:</label>
+      ) : (
+        <label>&nbsp;</label>
+      )}
+
+      <SelectUI
         {...input}
         onChange={value => {
-          input.onChange(value);
-          onChange && onChange(value);
+          input.onChange(typeof value === "object" ? value.value : value);
+          handleChange(value);
         }}
+        value={selectedOption}
         placeholder={placeholder}
         options={options}
-        disabled={disabled}
-        onBlur={input.onBlur}
+        isDisabled={disabled}
         error={touched && error}
+        name={input.name}
+        onBlur={e => {
+          e.preventDefault();
+        }}
+        noOptionsMessage={() => "Не знайдено"}
       />
 
-      {touched && error && <span className={f.error}>{error}</span>}
+      {touched && error && <span className={s.error}>{error}</span>}
     </div>
   );
 };
 
 export default Selecter;
+// ***************************************************************************************

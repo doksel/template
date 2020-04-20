@@ -5,7 +5,7 @@ import DatePickerUI from "../../ui/DatePicker/DatePicker";
 import { formatDate, formatDateView } from "../../../helpers/values";
 import { maskDatePicker } from "../../../helpers/validate";
 
-import f from "../Common.module.less";
+import f from "../FieldComponents.module.less";
 import moment from "moment";
 
 const DatePicker = ({

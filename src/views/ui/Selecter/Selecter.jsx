@@ -1,131 +1,95 @@
-import React, { Component } from "react";
-import ScrollArea from "react-scrollbar";
-import cm from "classnames";
+import React from "react";
+import Select from "react-select";
 
-import s from "./Selecter.less";
-
-class SelecterUI extends Component {
-  state = {
-    selected: null,
-    active: false
-  };
-
-  componentDidMount() {
-    document.addEventListener("mousedown", this.handleClickOutside);
-
-    this.setSelectedValue();
-  }
-
-  componentWillUnmount() {
-    document.removeEventListener("mousedown", this.handleClickOutside);
-  }
-
-  componentDidUpdate() {
-    const { selected } = this.state;
-
-    if (!this.props.options.length && selected) {
-      this.setState({ selected: null });
+const customStyles = {
+  option: (provided, { isFocused, isSelected }) => ({
+    ...provided,
+    backgroundColor: isFocused || isSelected ? "#004bc1" : null,
+    color: isFocused ? "#fff" : isSelected ? "#fff" : "inherit",
+    transition: "0.2s",
+    padding: 15,
+    cursor: "pointer"
+  }),
+  control: (provided, { isFocused, isSelected }) => ({
+    ...provided,
+    position: "relative",
+    display: "flex",
+    cursor: "pointer",
+    minHeight: "50px",
+    boxShadow: "none",
+    border: isFocused || isSelected ? "1px solid #004bc1" : "1px solid #323a45",
+    padding: 0,
+    color: "inherit",
+    fontSize: "16px",
+    borderRadius: 0,
+    outline: isFocused
+      ? "2px dotted #6f777b"
+      : isSelected
+      ? "2px dotted #6f777b"
+      : null,
+    outlineOffset: isFocused || isSelected ? 3 : null,
+    "&:hover": {
+      borderColor: "none"
     }
-  }
+  }),
+  indicatorSeparator: () => ({
+    display: "none"
+  }),
+  indicatorContainer: (provided, state) => {
+    const opacity = state.isDisabled ? 1 : 1;
+    const color = state.isDisabled ? "#004bc1" : "#004bc1";
 
-  setSelectedValue = () => {
-    const { options, localCurrency } = this.props;
+    return { ...provided, opacity, color };
+  },
+  singleValue: (provided, state) => {
+    const opacity = state.isDisabled ? 1 : 1;
+    const color = state.isDisabled ? "#000" : "inherit";
 
-    if (typeof this.props.value === "object") {
-      this.setState({
-        selected: options.filter(
-          option => option.value.id === this.props.value.id
-        )[0]
-      });
-    } else {
-      if (!this.props.value && localCurrency) {
-        this.props.onChange(options[0].value);
-      } else {
-        this.setState({
-          selected: options.filter(
-            option => option.value === this.props.value
-          )[0]
-        });
-      }
+    return { ...provided, opacity, color };
+  },
+  menu: provided => ({
+    ...provided,
+    border: "none",
+    boxShadow: " 0 4px 8px rgba(0, 0, 0, 0.1)",
+    "&:-webkit-scrollbar-track": {
+      backgroundColor: "transparent"
     }
-  };
-
-  handleClickOutside = e => {
-    if (this.list && !this.list.contains(e.target)) {
-      this.setState({ active: false });
+  }),
+  menuList: provided => ({
+    ...provided,
+    "&:-webkit-scrollbar-track": {
+      backgroundColor: "transparent"
     }
-  };
+  })
+};
 
-  onChange = option => {
-    this.setState({
-      selected: option,
-      active: false
-    });
+const Selecter = ({
+  options,
+  placeholder,
+  disabled,
+  input,
+  error,
+  onChange,
+  name,
+  value
+}) => (
+  <Select
+    {...input}
+    className="react-select-container"
+    classNamePrefix="react-select"
+    styles={customStyles}
+    onChange={onChange}
+    value={value}
+    placeholder={placeholder}
+    options={options}
+    isDisabled={disabled}
+    error={error}
+    name={name}
+    onBlur={e => {
+      e.preventDefault();
+    }}
+    noOptionsMessage={() => "Not found"}
+  />
+);
 
-    this.input.focus();
-
-    this.props.onChange && this.props.onChange(option.value);
-  };
-
-  render() {
-    const { selected, active } = this.state;
-
-    const { placeholder, options, disabled, error, onBlur } = this.props;
-
-    return (
-      <div
-        className={cm(s.wrapInput, {
-          [s.disabled]: disabled
-        })}
-      >
-        <div
-          className={cm(s.input, {
-            [s.focused]: active,
-            [s.error]: error
-          })}
-          ref={ref => (this.input = ref)}
-          tabIndex="0"
-          onClick={() => this.setState({ active: true })}
-          onBlur={onBlur}
-        >
-          {selected ? (
-            <span className={s.selected}>{selected.text}</span>
-          ) : (
-            <span>{placeholder}</span>
-          )}
-
-          <div className={s.arrow} />
-        </div>
-
-        <div className={s.wrapperOptions} ref={ref => (this.list = ref)}>
-          {active && (
-            <ScrollArea
-              speed={0.8}
-              className={s.area}
-              horizontal={false}
-              onScroll={() => {
-                this.input.focus();
-              }}
-            >
-              <div className={s.options}>
-                {options.map((option, index) => (
-                  <div
-                    key={index}
-                    className={cm(s.option, {
-                      [s.active]: option.value === selected && selected.value
-                    })}
-                    onClick={() => this.onChange(option)}
-                  >
-                    {option.text}
-                  </div>
-                ))}
-              </div>
-            </ScrollArea>
-          )}
-        </div>
-      </div>
-    );
-  }
-}
-
-export default SelecterUI;
+export default Selecter;

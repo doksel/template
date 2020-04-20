@@ -11,9 +11,9 @@ import Main from "../Main/Main";
 import Form from "../Form/Form";
 import TopTableFilter from "../../components/TopTableFilter/TopTableFilter";
 
-import s from "./Admin.less";
+import s from "./Admin.module.less";
 
-const Admin = ({ location }) => (
+const Admin = () => (
   <>
     <Header />
     <Breadcrumb crumbs={[]} />
@@ -23,43 +23,7 @@ const Admin = ({ location }) => (
 
       <Route path="/admin" exact render={() => <Main />} />
 
-      <Route path="/form" exact render={() => <Form />} />
-
-      {/* {Object.keys(resources).map(key => (
-          <>
-            <Route
-              path={`/${location.pathname.split("/")[1]}/${
-                resources[key].name
-              }`}
-              exact
-              component={resources[key].list}
-            />
-
-            <Route
-              path={`/${location.pathname.split("/")[1]}/${
-                resources[key].name
-              }/Створення`}
-              exact
-              component={resources[key].create}
-            />
-
-            <Route
-              path={`/${location.pathname.split("/")[1]}/${
-                resources[key].name
-              }/Редагування`}
-              exact
-              component={resources[key].edit}
-            />
-
-            <Route
-              path={`/${location.pathname.split("/")[1]}/${
-                resources[key].name
-              }/Перегляд`}
-              exact
-              component={resources[key].review}
-            />
-          </>
-        ))} */}
+      <Route path="/form/:type?/:id?" exact render={() => <Form />} />
     </Content>
   </>
 );

@@ -5,7 +5,6 @@ import s from "./Header.module.less";
 
 const Header = ({ location }) => {
   const titles = location.pathname.split("/");
-  console.log(s);
 
   return (
     <div className={s.header}>

@@ -3,7 +3,7 @@ import React from "react";
 import RadioButtonUI from "../../ui/RadioButton/RadioButton";
 
 import s from "./RadioButton.module.less";
-import c from "../Common.module.less";
+import c from "../FieldComponents.module.less";
 
 const RadioButton = ({
   input,
