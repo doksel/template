@@ -11,7 +11,6 @@ import Button from "../../ui/Button/Button";
 import { message } from "../../../helpers/notifications";
 
 import s from "./LogIn.module.less";
-import Selecter from "../../fieldComponents/Selecter/Selecter";
 
 const LogIn = ({ handleSubmit, signIn, dirty, invalid }) => {
   const [loading, setLoading] = useState(false);
@@ -59,20 +58,6 @@ const LogIn = ({ handleSubmit, signIn, dirty, invalid }) => {
         validate={[required]}
         required
         icon="lock"
-      />
-
-      <Field
-        name="countryId"
-        validate={[required]}
-        component={Selecter}
-        placeholder="Оберіть країну"
-        label="Країна"
-        required
-        options={[
-          { value: 1, label: "1" },
-          { value: 2, label: "2" },
-          { value: 3, label: "3" }
-        ]}
       />
 
       <Button

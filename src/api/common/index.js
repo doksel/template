@@ -1,8 +1,8 @@
 import axios from "axios";
 import { setHeader } from "../index";
 
-const host = process.env.REACT_APP_CORE_API_HOST;
-const api = `${host}/api`;
+const host = process.env.REACT_APP_API_HOST;
+const api = `${host}/api/v1`;
 
 export default {
   checkUserIp: () => {
@@ -23,24 +23,21 @@ export default {
     return axios(config).then(res => res && res.data);
   },
 
-  uploadFile: file => {
-    let formData = new FormData();
-    formData.append("file", file);
+  uploadFile: data => {
+    let config = {
+      method: "POST",
+      baseURL: `${api}/attachments/upload`,
+      headers: setHeader(),
+      data
+    };
 
-    return axios
-      .post(`${api}/upload`, formData, {
-        headers: {
-          ...setHeader(),
-          "Content-Type": "multipart/form-data"
-        }
-      })
-      .then(res => res && res.data);
+    return axios(config).then(res => res && res.data);
   },
 
   removeFile: fileHash => {
     let config = {
       method: "DELETE",
-      baseURL: `${api}/upload/${fileHash}`,
+      baseURL: `${api}/attachments/${fileHash}`,
       headers: setHeader()
     };
 

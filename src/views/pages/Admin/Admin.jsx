@@ -8,7 +8,7 @@ import Content from "../../layout/Content/Content";
 import Breadcrumb from "../../components/Breadcrumb/Breadcrumb";
 
 import Main from "../Main/Main";
-import Form from "../Form/Form";
+import Form from "../../forms/Form/Form";
 import TopTableFilter from "../../components/TopTableFilter/TopTableFilter";
 
 import s from "./Admin.module.less";
@@ -23,7 +23,7 @@ const Admin = () => (
 
       <Route path="/admin" exact render={() => <Main />} />
 
-      <Route path="/form/:type?/:id?" exact render={() => <Form />} />
+      <Route path="/admin/form/:type?/:id?" exact render={() => <Form />} />
     </Content>
   </>
 );

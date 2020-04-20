@@ -2,12 +2,12 @@ import React from "react";
 import { connect } from "react-redux";
 import { Route, Redirect } from "react-router-dom";
 
-const PrivateRoute = ({ component: Component, user, resources, ...rest }) => (
+const PrivateRoute = ({ component: Component, user, ...rest }) => (
   <Route
     {...rest}
     render={props => {
       if (user) {
-        return <Component {...props} resources={resources} />;
+        return <Component {...props} />;
       }
 
       return <Redirect to="/" />;

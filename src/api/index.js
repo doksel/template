@@ -4,6 +4,9 @@ import user from "./user";
 import store from "../state/store";
 
 export const CancelToken = axios.CancelToken;
+export const host = process.env.REACT_APP_REFERENCE_HOST;
+export const REACT_APP_API_HOST = process.env.REACT_APP_RESIDENCY_API_HOST;
+export const API = `${REACT_APP_API_HOST}/api/v1`;
 
 export const setHeader = () => {
   const state = store.getState();

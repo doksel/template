@@ -65,13 +65,9 @@ const Selecter = ({
         value={selectedOption}
         placeholder={placeholder}
         options={options}
-        isDisabled={disabled}
+        disabled={disabled}
         error={touched && error}
         name={input.name}
-        onBlur={e => {
-          e.preventDefault();
-        }}
-        noOptionsMessage={() => "Не знайдено"}
       />
 
       {touched && error && <span className={s.error}>{error}</span>}
@@ -80,4 +76,3 @@ const Selecter = ({
 };
 
 export default Selecter;
-// ***************************************************************************************
