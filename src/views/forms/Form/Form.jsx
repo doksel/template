@@ -61,7 +61,6 @@ const Form = () => {
               uploadReq={api.common.uploadFile}
               removeReq={api.common.removeFile}
               label="Upload file"
-              accepts=".png,.jpeg,.jpg"
             />
 
             <Button type="submit" primary>

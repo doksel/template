@@ -1,8 +1,6 @@
 import axios from "axios";
 import { setHeader } from "../index";
-
-const host = process.env.REACT_APP_API_HOST;
-const api = `${host}/api/v1`;
+import { API } from "../index";
 
 export default {
   checkUserIp: () => {
@@ -26,7 +24,7 @@ export default {
   uploadFile: data => {
     let config = {
       method: "POST",
-      baseURL: `${api}/attachments/upload`,
+      baseURL: `${API}/attachments/upload`,
       headers: setHeader(),
       data
     };
@@ -37,7 +35,7 @@ export default {
   removeFile: fileHash => {
     let config = {
       method: "DELETE",
-      baseURL: `${api}/attachments/${fileHash}`,
+      baseURL: `${API}/attachments/${fileHash}`,
       headers: setHeader()
     };
 

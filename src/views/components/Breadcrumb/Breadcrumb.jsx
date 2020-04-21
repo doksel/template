@@ -6,7 +6,7 @@ import s from "./Breadcrumb.module.less";
 const Breadcrumb = ({ crumbs, history }) => (
   <div className={s.breadcrumb}>
     <Link to="/">
-      <span>Головна</span>
+      <span>Main</span>
     </Link>
 
     {crumbs && crumbs[0] && <span className={s.slash}>/</span>}

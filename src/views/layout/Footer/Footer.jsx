@@ -1,7 +1,7 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 
-import s from "./Header.module.less";
+import s from "./Footer.module.less";
 
 const Header = ({ location }) => {
   const titles = location.pathname.split("/");

@@ -1,0 +1,44 @@
+@import "../../../styles/theme.less";
+
+.table {
+  border-spacing: 0;
+  border: 1px solid black;
+
+  .withoutHeader {
+    thead tr:first-child {
+      display: none;
+    }
+  }
+
+  table {
+    display: flex;
+    flex-direction: column;
+
+    tr {
+      display: flex;
+
+      &:hover {
+        background-color: @table-row-hover-bg;
+      }
+
+      &:last-child {
+        td {
+          border-bottom: 0;
+        }
+      }
+    }
+
+    th,
+    td {
+      width: 100%;
+      margin: 0;
+      padding: 0.5rem;
+      border-bottom: 1px solid black;
+      border-right: 1px solid black;
+
+      &:last-child {
+        border-right: 0;
+      }
+    }
+  }
+}

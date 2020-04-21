@@ -35,9 +35,6 @@ const FileUploader = ({
   };
 
   const checkValid = input => {
-    console.log(input);
-    console.log(input && input.files);
-
     const inputMaxSize = Object.values(input.files).some(
       file => file.size > input.size
     );

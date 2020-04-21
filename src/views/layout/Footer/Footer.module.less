@@ -1,18 +1,13 @@
 @import "../../../styles/theme.less";
 
-.header {
+.footer {
   display: flex;
   align-items: center;
   border-bottom: @main-border;
-
-  .burger-menu {
-    margin-right: 10px;
-    display: none;
-
-    @media screen and (max-width: @lg-break-point) {
-      display: block;
-    }
-  }
+  padding: @layout-footer-padding;
+  height: @layout-footer-height;
+  background: @layout-footer-background;
+  box-shadow: 2px 2px 8px 1px @inactive-color;
 
   h1 {
     font-weight: 400;

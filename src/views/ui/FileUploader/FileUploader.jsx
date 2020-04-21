@@ -1,7 +1,6 @@
 import React from "react";
 
 import Loader from "../../components/Loader/Loader";
-
 import add from "../../images/icons/add.svg";
 import close from "../../images/icons/close-big.svg";
 
