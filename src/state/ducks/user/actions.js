@@ -1,5 +1,7 @@
 import * as types from "./types";
 import api from "../../../api";
+import { startLoading, stopLoading } from "../loader/actions";
+import { message } from "../../../helpers/notifications";
 
 export const userSignIn = ({ token }) => {
   if (token) {
@@ -18,13 +20,32 @@ export const setMe = user => ({
 });
 
 export const signIn = credentials => dispatch => {
-  api.user
+  dispatch(startLoading());
+
+  return api.user
     .signin(credentials)
-    .then(data => (data && !data.errors ? dispatch(userSignIn(data)) : data));
+    .then(data => (data && !data.errors ? dispatch(userSignIn(data)) : data))
+    .catch(err => {
+      message.error();
+    })
+    .finally(() => dispatch(stopLoading()));
 };
 
-export const me = () => dispatch =>
-  api.user.me().then(data => dispatch(setMe(data)));
+export const me = () => dispatch => {
+  dispatch(startLoading());
+
+  return api.user
+    .me()
+    .then(data => {
+      message.success("Ви успішно увійшли у систему");
+      return dispatch(setMe(data));
+    })
+    .catch(() => {
+      localStorage.removeItem("token");
+      message.error();
+    })
+    .finally(() => dispatch(stopLoading()));
+};
 
 export const signOut = () => {
   localStorage.removeItem("token");

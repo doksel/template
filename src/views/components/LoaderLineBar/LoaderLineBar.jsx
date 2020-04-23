@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import LoadingBar from "react-top-loading-bar";
 import { connect } from "react-redux";
 
-import "./LoaderLineBar.module.less";
+import s from "./LoaderLineBar.module.less";
 
 class LoaderLineBar extends Component {
   state = {
@@ -56,7 +56,7 @@ class LoaderLineBar extends Component {
           height={0}
           onRef={ref => (this.LoadingBar = ref)}
           color="#004bc1"
-          className="loading-bar"
+          className={s.loading_bar}
         />
       </div>
     );

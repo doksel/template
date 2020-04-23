@@ -4,22 +4,12 @@
   border-spacing: 0;
   border: 1px solid black;
 
-  .withoutHeader {
-    thead tr:first-child {
-      display: none;
-    }
-  }
-
   table {
     display: flex;
     flex-direction: column;
 
     tr {
       display: flex;
-
-      &:hover {
-        background-color: @table-row-hover-bg;
-      }
 
       &:last-child {
         td {
@@ -39,6 +29,56 @@
       &:last-child {
         border-right: 0;
       }
+    }
+
+    tbody tr:hover {
+      background-color: @table-row-hover-bg;
+    }
+  }
+}
+
+.wrap_pagination {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  .pagination {
+    .arrow {
+      cursor: pointer;
+      width: 30px;
+      height: 30px;
+    }
+
+    .arrow.primary {
+      background: @primary-color;
+      border: 1px solid @primary-color;
+      color: #fff;
+
+      &:hover {
+        background: @link-hover-color;
+        border: 1px solid @link-hover-color;
+      }
+    }
+
+    .arrow.success {
+      background: @green-color;
+      border: 1px solid @green-color;
+      color: #fff;
+
+      &:hover {
+        background: @green-hover-color;
+        border: 1px solid @green-hover-color;
+      }
+    }
+
+    .arrow.disabled {
+      background: @inactive-color;
+      border: 1px solid @inactive-color;
+      color: @main-text-color;
+    }
+
+    input,
+    select {
+      height: 30px;
     }
   }
 }

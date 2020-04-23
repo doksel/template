@@ -1,13 +1,13 @@
 @import "../../../styles/theme.less";
 
-.nav-bar {
+.nav_bar {
   .resource {
     display: block;
     color: @text-color;
     font-size: 16px;
     border-top: @main-border;
 
-    .main-resource {
+    .main_resource {
       padding: 15px 0;
       padding-left: 35px;
       padding-right: 10px;
@@ -27,12 +27,12 @@
     border-bottom: @main-border;
   }
 
-  .sub-resources {
+  .sub_resources {
     max-height: 0;
     overflow: hidden;
     opacity: 0;
 
-    .sub-resource {
+    .sub_resource {
       position: relative;
       -webkit-transition: 0.3s;
       -moz-transition: 0.3s;
@@ -56,17 +56,17 @@
   }
 
   .active {
-    .main-resource {
+    .main_resource {
       color: #fff;
       background-color: @primary-color;
     }
 
-    .sub-resources {
+    .sub_resources {
       max-height: 20em;
       opacity: 1;
     }
 
-    .active-sub-resource {
+    .active_sub_resource {
       border-left: solid 5px @primary-color;
       background-color: #f2f4f8;
     }

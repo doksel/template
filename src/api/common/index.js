@@ -40,5 +40,14 @@ export default {
     };
 
     return axios(config).then(res => res && res.data);
+  },
+
+  getContries: () => {
+    let config = {
+      method: "GET",
+      baseURL: `http://localhost:8700/api/countries?sort=name`,
+      headers: setHeader()
+    };
+    return axios(config).then(res => res && res.data);
   }
 };

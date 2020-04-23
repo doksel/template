@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
 
@@ -6,54 +6,31 @@ import DefaultRoute from "./default";
 import GuestRoute from "./hoc/GuestRoute";
 import PrivateRoute from "./hoc/PrivateRoute";
 
-import LoaderLineBar from "../views/components/LoaderLineBar/LoaderLineBar";
+import MainLoader from "../views/components/MainLoader/MainLoader";
 import ConfirmModal from "../views/components/ConfirmModal/ConfirmModal";
-import { message } from "../helpers/notifications";
 
 import Auth from "../views/pages/Auth/Auth";
 import Admin from "../views/pages/Admin/Admin";
 
-import { me, setMe } from "../state/ducks/user/actions";
+import { me } from "../state/ducks/user/actions";
 
 const token = localStorage.getItem("token");
 
-const App = ({ user, me, setMe }) => {
-  const [loading, setLoading] = useState(true);
-
+const App = ({ user, me, isLoad }) => {
   useEffect(() => {
-    getMe();
+    token && me();
   }, []);
 
   useEffect(() => {
-    if (!user) {
-      setLoading(true);
-      getMe();
-    }
-  }, [user]);
-
-  const getMe = async () => {
-    if (token) {
-      await me()
-        .then(() => {
-          message.success("Ви успішно увійшли у систему");
-        })
-        .catch(() => {
-          localStorage.removeItem("token");
-          message.error();
-        });
-    }
-
-    setLoading(false);
-  };
+    !user && token && me();
+  }, [user, me]);
 
   return (
     <>
-      {loading ? (
-        <></>
+      {isLoad ? (
+        <MainLoader loading={isLoad} />
       ) : (
         <>
-          <LoaderLineBar />
-
           <ConfirmModal />
 
           <Switch>
@@ -73,8 +50,8 @@ const App = ({ user, me, setMe }) => {
   );
 };
 
-const mapStateToProps = ({ user }) => ({ user });
+const mapStateToProps = ({ user, loader: { isLoad } }) => ({ user, isLoad });
 
-const mapDispatchToProps = { me, setMe };
+const mapDispatchToProps = { me };
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

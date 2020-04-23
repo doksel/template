@@ -1,63 +1,34 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { withRouter } from "react-router-dom";
-import TableUI from "../../ui/Table/Table";
 
+import TableUI from "../../ui/Table/Table";
+import api from "../../../api";
 import s from "./Table.module.less";
 
-const Table = () => {
-  const columns = [
-    {
-      Header: "First Name",
-      columns: [
-        {
-          Header: "First Name",
-          accessor: "firstName"
-        }
-      ]
-    },
-    {
-      Header: "Last Name",
-      columns: [
-        {
-          Header: "Last Name",
-          accessor: "lastName",
-          isSorting: true
-        }
-      ]
-    },
-    {
-      Header: "Age",
-      columns: [
-        {
-          Header: "Age",
-          accessor: "age",
-          isSorting: true
-        }
-      ]
-    }
-  ];
+import { columnsCountries } from "../../../helpers/values";
 
-  const data = [
-    {
-      firstName: "firstName1",
-      lastName: "lastName1",
-      age: "age1"
-    },
-    {
-      firstName: "firstName2",
-      lastName: "lastName2",
-      age: "age2"
-    },
-    {
-      firstName: "firstName3",
-      lastName: "lastName3",
-      age: "age3"
-    }
-  ];
+const Table = () => {
+  const [countries, setCountries] = useState([]);
+
+  useEffect(() => {
+    getCountry();
+  }, []);
+
+  const getCountry = async () => {
+    await api.common.getContries().then(res => {
+      let countries = res.map(elem => ({
+        name: elem.name,
+        shortName: elem.shortName,
+        codeThreeStr: elem.codeThreeStr
+      }));
+
+      setCountries(countries);
+    });
+  };
 
   return (
     <div className={s.wrap_table}>
-      <TableUI columns={columns} data={data} withoutHeader={true} />
+      <TableUI columns={columnsCountries} data={countries} isPagination />
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { reduxForm, Field } from "redux-form";
 import { connect } from "react-redux";
 import { compose } from "redux";
@@ -8,28 +8,13 @@ import { signIn } from "../../../state/ducks/user/actions";
 
 import Input from "../../fieldComponents/Input/Input";
 import Button from "../../ui/Button/Button";
-import { message } from "../../../helpers/notifications";
 
 import s from "./LogIn.module.less";
 
-const LogIn = ({ handleSubmit, signIn, dirty, invalid }) => {
-  const [loading, setLoading] = useState(false);
-
+let LogIn = ({ handleSubmit, signIn, dirty, invalid, isLoad }) => {
   const formSubmit = e => {
     e.preventDefault();
-
-    handleSubmit(values => {
-      setLoading(true);
-
-      return signIn(values)
-        .then(() => {
-          setLoading(false);
-        })
-        .catch(err => {
-          setLoading(false);
-          message.error();
-        });
-    })();
+    handleSubmit(values => signIn(values))();
   };
 
   return (
@@ -64,7 +49,7 @@ const LogIn = ({ handleSubmit, signIn, dirty, invalid }) => {
         disabled={!dirty || invalid}
         type="submit"
         primary
-        loading={loading}
+        loading={isLoad}
       >
         Enter
       </Button>
@@ -72,11 +57,12 @@ const LogIn = ({ handleSubmit, signIn, dirty, invalid }) => {
   );
 };
 
+const mapStateToProps = ({ loader: { isLoad } }) => ({ isLoad });
+
 const mapDispatchToProps = { signIn };
 
 const enhance = compose(
-  connect(null, mapDispatchToProps),
+  connect(mapStateToProps, mapDispatchToProps),
   reduxForm({ form: "login" })
 );
-
 export default enhance(LogIn);

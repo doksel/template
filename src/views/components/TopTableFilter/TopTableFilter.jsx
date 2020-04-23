@@ -4,7 +4,7 @@ import { TweenOneGroup } from "rc-tween-one";
 
 import { removeFilter } from "../../../state/ducks/filters/actions";
 
-import "./TopTableFilter.less";
+import s from "./TopTableFilter.module.less";
 
 const TopTableFilter = ({ selectedFilters, removeFilter }) => (
   <TweenOneGroup
@@ -31,7 +31,10 @@ const TopTableFilter = ({ selectedFilters, removeFilter }) => (
     appear={false}
   >
     {selectedFilters.length > 0 && (
-      <div className="filters paper small-shadow container-actions" key="0">
+      <div
+        className={`${s.filters} paper small_shadow container_actions`}
+        key="0"
+      >
         {selectedFilters.map((filter, index) => (
           <span key={index}>
             <div

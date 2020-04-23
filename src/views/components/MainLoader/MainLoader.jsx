@@ -1,12 +1,22 @@
 import React from "react";
 
-import "./MainLoader.module.less";
+import cm from "classnames";
+import s from "./MainLoader.module.less";
 
 const MainLoader = ({ loading }) => (
-  <div className={`main-loader ${loading ? "active" : ""}`}>
-    <img src="/logo.svg" alt="mvaua" />
-
-    <div className="line-loading"></div>
+  <div
+    className={cm(s.main_loader, {
+      [s.active]: loading
+    })}
+  >
+    <div className={s.loader}>
+      <div className={s.lds_ring}>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
   </div>
 );
 
